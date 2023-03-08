@@ -11,6 +11,7 @@ variable domain {
 variable region {
   description = "The DigitalOcean region that the cluster should be created in (NYC1 for example)."
   type = string
+  default = "nyc1"
 }
 
 variable letsencrypt_email {

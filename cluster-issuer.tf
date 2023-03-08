@@ -1,6 +1,6 @@
 resource "helm_release" "cluster-issuer" {
   name = "cluster-issuer"
-  chart = "helm_charts/cluster-issuer"
+  chart = "helm-charts/cluster-issuer"
   namespace = "cert-manager"
   set {
     name = "letsencrypt_email"

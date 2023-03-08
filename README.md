@@ -1,1 +1,40 @@
-# terraform-digital-ocean-cluster
+# Terraform DigitalOcean Cluster
+This repository contains a set of Terraform files that set up an environemnt in DigitalOcean containing:
+* Kubernetes cluster
+* PostgreSQL cluster
+* Cert Manager with Let's Encrypt
+
+## Set up a Terraform Cloud Account
+Set up a Terraform Cloud account (the free plan is sufficient). A single account can be used for many applications.
+
+## Set up a DigitalOcean Account
+Set up a DigitalOcean account.
+You can create a separate team for each cluster to keep the hosting charges separate.
+Go to API on the left nav and set up a personal access token named Terraform.
+Store the access token value in a secure place - it will be used in later steps. 
+
+## Register a Domain
+Register a domain (myapp.com for example). Add the domain to your DigitalOcean team and connect it to the DigitalOcean nameservers using [DigitalOcean's instructions](https://docs.digitalocean.com/products/networking/dns/how-to/add-domains/).
+
+## Create a Terraform Project
+Go to Terraform Cloud and create a project with a name that matches your top level domain.
+
+## Create a Terraform Workspace
+Create a new workspace as follows:
+
+* Select Version control workflow
+* Select GitHub (click Connect to a different VCS if you don't see GitHub)
+* Select the apexdesigner organization (add it if it is not there)
+* Select terraform-digital-ocean-cluster
+* Set the workspace name to your domain name + cluster (myapp-com-cluster for example)
+* Select the project you just created
+* Click the Create workspace button
+
+##Configure the Terraform Variables
+Follow the instructions to fill in the variables for the workspace and click Save variables.
+
+## Start a Run
+Click the Start a new plan button to start the first run. The run will be done in two phases: plan and apply. After plan completes successfully, it will show the list of resources that apply will create. Click Confirm and Apply to start the apply phase.
+
+## Verify the Setup
+When the run is complete, you should be able to access the echo subdomain ("echo.myapp.com" for example). You may see a privacy error while Let's Encrypt issues the SSL cert. That can take up to an hour in some cases.

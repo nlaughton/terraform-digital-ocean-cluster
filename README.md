@@ -30,7 +30,7 @@ Create a new workspace as follows:
 * Select the project you just created
 * Click the Create workspace button
 
-##Configure the Terraform Variables
+## Configure the Terraform Variables
 Follow the instructions to fill in the variables for the workspace and click Save variables.
 
 ## Start a Run

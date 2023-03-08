@@ -14,7 +14,9 @@ Go to API on the left nav and set up a personal access token named Terraform.
 Store the access token value in a secure place - it will be used in later steps. 
 
 ## Register a Domain
-Register a domain (myapp.com for example). Add the domain to your DigitalOcean team and connect it to the DigitalOcean nameservers using [DigitalOcean's instructions](https://docs.digitalocean.com/products/networking/dns/how-to/add-domains/).
+Register a domain (myapp.com for example).
+Add the domain to your DigitalOcean team and connect it to the DigitalOcean nameservers using [DigitalOcean's instructions](https://docs.digitalocean.com/products/networking/dns/how-to/add-domains/).
+Be sure to use a tool like [DNS Propagation Checker](https://www.whatsmydns.net/) to verify that the nameserver change have propagated before you try to do the first run.
 
 ## Create a Terraform Project
 Go to Terraform Cloud and create a project with a name that matches your top level domain.
@@ -25,7 +27,7 @@ Create a new workspace as follows:
 * Select Version control workflow
 * Select GitHub (click Connect to a different VCS if you don't see GitHub)
 * Select the apexdesigner organization (add it if it is not there)
-* Select terraform-digital-ocean-cluster
+* Select the terraform-digital-ocean-cluster repository
 * Set the workspace name to your domain name + cluster (myapp-com-cluster for example)
 * Select the project you just created
 * Click the Create workspace button
@@ -38,3 +40,6 @@ Click the Start a new plan button to start the first run. The run will be done i
 
 ## Verify the Setup
 When the run is complete, you should be able to access the echo subdomain ("echo.myapp.com" for example). You may see a privacy error while Let's Encrypt issues the SSL cert. That can take up to an hour in some cases.
+
+## What's Next?
+If your app uses [Auth0](https://auth0.com) for authentication, you can configure that using [these instructions](https://github.com/apexdesigner/terraform-digital-ocean-auth0).

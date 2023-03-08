@@ -4,7 +4,7 @@ variable "digital_ocean_token" {
 }
 
 variable domain {
-  description = "Top level domain that will be related to this cluster (example.com)."
+  description = "Top level domain that will be related to this cluster (my-app.com for example)."
   type = string
 }
 

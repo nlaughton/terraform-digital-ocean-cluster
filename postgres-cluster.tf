@@ -3,7 +3,7 @@ resource "digitalocean_database_cluster" "postgres_cluster" {
   engine     = "pg"
   version    = "14"
   size       = "db-s-1vcpu-1gb"
-  region     =  upper(var.region)
+  region     =  lower(var.region)
   node_count = 1
 }
 

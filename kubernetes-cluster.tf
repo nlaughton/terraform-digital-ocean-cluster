@@ -1,7 +1,7 @@
 
 resource "digitalocean_kubernetes_cluster" "kubernetes_cluster" {
   name    = replace(var.domain,".","-")
-  region  = upper(var.region)
+  region  = lower(var.region)
   version = "1.24.8-do.0"
 
   node_pool {

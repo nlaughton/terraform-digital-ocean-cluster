@@ -25,6 +25,7 @@ Create a new workspace as follows:
 
 * Select Version control workflow
 * Select GitHub (click Connect to a different VCS if you don't see GitHub)
+* The first time you connect to GitHub you will be prompted to install the Terraform Cloud app and give it access to your account - click install to complete this step
 * Select the apexdesigner organization (add it if it is not there)
 * Select the terraform-digital-ocean-cluster repository
 * Set the workspace name to your domain name + cluster (myapp-com-cluster for example)
